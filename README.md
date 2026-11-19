@@ -27,29 +27,27 @@ cd campaign && python3 -m http.server 8765
 
 El video necesita servidor local; con `file://` algunos navegadores lo bloquean.
 
-## Publicarla
+## Publicada
 
-Cualquiera de estas, en orden de facilidad:
+- **Página:** <https://vodooofilms.github.io/hipo-campana/>
+- **Repositorio:** <https://github.com/VodoooFilms/hipo-campana> (público, rama `main`)
+- El reproductor **no** tiene autoplay, por decisión editorial: se reproduce
+  con música solo cuando la persona hace clic.
+- Para actualizar: editar, `git commit` y `git push` dentro de `campaign/`.
+  GitHub Pages republica solo en 1–2 minutos.
 
-1. **Netlify Drop** — <https://app.netlify.com/drop>. Arrastra la carpeta
-   `campaign/` y obtienes una dirección `https://algo.netlify.app` al instante.
-2. **GitHub Pages** — subir la carpeta a un repo y activar Pages.
-3. **Vercel** — `npx vercel` dentro de `campaign/`.
+Nota: la cuenta tenía `tobybots.com` como dominio personalizado en el repo
+`vodooofilms.github.io`, lo que redirigía todas las páginas hacia Firebase y
+daba 404. Se retiró ese dominio solo de la configuración de GitHub;
+`tobybots.com` sigue alojado en Firebase, sin cambios.
 
-Cualquiera sirve; lo importante es que la dirección quede fija porque el QR y
-las redes apuntan ahí.
+## Códigos QR
 
-## Después de publicar: el QR de la página
-
-```bash
-./campaign/regenerar-qr.sh https://la-direccion-final.com
-```
-
-Eso reescribe `assets/qr-pagina.png` con la dirección real. Después hay que
-volver a subir la carpeta. Mientras no lo hagas, el QR de la página es un
-marcador que dice «pendiente» y **no** debe imprimirse.
-
-El QR de PayPal ya funciona y apunta a `https://paypal.me/antoniomartinez75`.
+- `assets/qr-pagina.png` → la dirección publicada (arriba). Copia suelta en el
+  Escritorio: `HIPO-QR-pagina.png` (1248×1248, listo para imprimir).
+- `assets/qr-paypal.png` → `https://paypal.me/antoniomartinez75`. Copia suelta:
+  `HIPO-QR-paypal.png`.
+- Para regenerarlos: `./campaign/regenerar-qr.sh https://vodooofilms.github.io/hipo-campana/`
 
 ## Qué conviene revisar antes de publicar
 
