@@ -362,6 +362,7 @@
     history.replaceState(null, '', window.location.pathname + window.location.search);
   }
   window.scrollTo(0, 0);
+  window.addEventListener('load', function () { window.scrollTo(0, 0); });
 
   document.querySelectorAll('.copy').forEach(function (b) {
     b.addEventListener('click', function () {
