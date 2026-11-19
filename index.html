@@ -145,7 +145,7 @@
   @media(max-width:880px){
     .hero-grid,.two,.goal,.pay,.tiers,.gallery{grid-template-columns:1fr}
     .hero{padding-top:36px}
-    .hero-media{max-width:560px;margin:0 auto;width:100%}
+    .hero-media{max-width:560px;margin:0 auto;width:100%;order:-1}
     body{padding-bottom:76px}
     .cta-bar{display:block;position:fixed;bottom:0;left:0;right:0;z-index:30;
       background:rgba(246,239,226,.96);border-top:1px solid var(--line);
@@ -355,6 +355,14 @@
 </div>
 
 <script>
+  // La entrada es siempre el inicio, donde está el player:
+  // sin anclas heredadas ni restauración de scroll del navegador.
+  if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+  if (window.location.hash) {
+    history.replaceState(null, '', window.location.pathname + window.location.search);
+  }
+  window.scrollTo(0, 0);
+
   document.querySelectorAll('.copy').forEach(function (b) {
     b.addEventListener('click', function () {
       var done = function () {
